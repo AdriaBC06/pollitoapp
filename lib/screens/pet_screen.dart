@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:pollitoapp/screens/home_screen.dart';
 import '../preferences/preferences.dart';
+import 'package:audioplayers/audioplayers.dart';
+
 
 class PetScreen extends StatefulWidget {
   static const String routerName = 'pet_screen';
@@ -12,6 +14,7 @@ class PetScreen extends StatefulWidget {
 }
 
 class _PetScreenState extends State<PetScreen> {
+  final AudioPlayer _player = AudioPlayer();
   int pios = Preferences.pios;
   String pet_name = Preferences.nom;
 
@@ -59,14 +62,16 @@ class _PetScreenState extends State<PetScreen> {
 
                 GestureDetector(
                   onTap: () {
+                    _player.stop();
+                    _player.play(AssetSource('pio.mp3'));
                     Preferences.pios++;
                     setState(() {
                       pios = Preferences.pios;
                     });
                   },
                   child: Image.asset(
-                    "resources/manolo.png",
-                    width: 160, // 🐥 MÁS GRANDE
+                    "assets/manolo.png",
+                    width: 160,
                   ),
                 ),
 

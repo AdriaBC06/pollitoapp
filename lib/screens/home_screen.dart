@@ -46,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                 TextField(
                   controller: _controller,
                   textAlign: TextAlign.center,
-                  cursorColor: wiiBlue, // 🔵 cursor azul
+                  cursorColor: wiiBlue,
                   decoration: InputDecoration(
                     hintText: "Nombre del pollito",
                     filled: true,
